@@ -11,24 +11,31 @@
 
 <div class="past-events">
     <h1>Past Events</h1>
+    <p>Click the image to learn more! Both Cascade and Blossom were Atlanta events, and in the past we've partnered with organizations such as Girl Scouts and Soccer in the Streets! </p>
     <div class="clouds">
         <div class="event-container cascade">
             <img class="base" src={cloud1} alt="Cloud" />
-            <a target="_blank" href="https://github.com/hackclub/cascade?tab=readme-ov-file#-cascade">
-                <img class="image-on-top" src={cascade} alt=""/>
-            </a>
-            <span class="label">CASCADE</span>
+            <div class="on-top-of-cloud">
+                <a target="_blank" href="https://github.com/hackclub/cascade?tab=readme-ov-file#-cascade">
+                    <img class="image-on-top" src={cascade} alt=""/>
+                </a>
+                <p class="label">CASCADE</p>
+            </div>
         </div>
         <div class="event-container other-event">
-            <img class="base" src={cloud2} alt="Cloud" />
-            <span class="label">OTHER EVENT</span>
+                <img class="base" src={cloud2} alt="Cloud" />
+            <div class="on-top-of-cloud">
+                <p class="label">OTHER EVENT</p>
+            </div>
         </div>
         <div class="event-container blossom">
             <img class="base" src={cloud3} alt="Cloud" />
-            <a target="_blank" href="https://github.com/hackclub/blossom?tab=readme-ov-file#blossom-">
-                <img class="image-on-top" src={blossom} alt=""/>
-            </a>
-            <span class="label">BLOSSOM</span>
+            <div class="on-top-of-cloud">
+                <a target="_blank" href="https://github.com/hackclub/blossom?tab=readme-ov-file#blossom-">
+                    <img class="image-on-top" src={blossom} alt=""/>
+                </a>
+                <p class="label">BLOSSOM</p>
+            </div>
         </div>
     </div>
 </div>
@@ -36,56 +43,45 @@
 <style>
     .clouds {
         display: grid;
-        gap: 10px;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: start;
+        justify-items: center;
     }
-    .event-container {
-        position: relative;
-        overflow: hidden;
-        display: block;
+
+    .base {
+        width: 300px; 
     }
-    .cascade {
-        position: relative;
-        overflow: hidden;
-        display: block;
-    }
-    .cascade .base {
-        display: block;
-        width: 100%;
-        height: auto;
-    }
+
     .image-on-top {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 40%; 
-        height: auto;
-        z-index: 2;
-        opacity: 0.95;
+        width: 100px; 
         border-radius: 10px; 
     }
-    .cascade .image-on-top {
-        transform: translate(-30%, -30%);
+
+    /* copilot code to center blossom cloud on 2nd grid row */
+    .event-container.blossom {
+      grid-column: 1 / -1;
+      justify-self: center;
     }
-    .blossom .image-on-top {
-        transform: translate(-50%, -60%);
+
+    .blossom .on-top-of-cloud {
+      transform: translate(0%, -150%); 
     }
-    .other-event .label {
-        transform: translate(-50%, -350%); 
+
+    .cascade .on-top-of-cloud {
+        transform: translate(5%, -200%); 
     }
-    .blossom .label {
-        transform: translate(-60%, -300%); 
+
+    .other-event .on-top-of-cloud {
+        transform: translate(0%, -800%); 
     }
-    .cascade .label {
-        transform: translate(-40%, -200%);
-    }
+
     .label {
-        z-index: 3; 
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        color: #0c6c9d; 
-        /* make the label decorative for pointer events so clicks go to the link below */
-        pointer-events: none;
+        color: rgb(0, 93, 181); 
+        transform: translateY(-60%); 
+    }
+
+    .blossom {
+        transform: translateY(-40%); 
     }
 </style>
