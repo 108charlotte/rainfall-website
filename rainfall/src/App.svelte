@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte'
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import About from './lib/components/About.svelte'
@@ -15,31 +16,32 @@
   import raindrop1 from './assets/raindrop_1.PNG'
   import raindrop2 from './assets/raindrop_2.PNG'
   import raindrop3 from './assets/raindrop_3.PNG'
+
+  // copilot script to create a minimal parallax effect for the background minimal parallax: move overlay at reduced speed relative to scroll
+  let overlayOffset = 0
+  let raf = null
+
+  function handleScroll() {
+    if (raf) return
+    raf = requestAnimationFrame(() => {
+      overlayOffset = window.scrollY * 0.35
+      raf = null
+    })
+  }
+
+  onMount(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  })
 </script>
 
 <main>
   <img src={rainfallLogo} alt="Rainfall Logo" width="300" />
-
+  <img src={rainOverlay} alt="" aria-hidden="true" class="page-overlay" style="transform: translateY({overlayOffset}px);" />
   <About/>
   <PastEvents/>
   <Sponsors/>
   <Organizers/>
+  <h1>Contact</h1>
+  <p>You can contact us at charlotte.m.woodrum@gmail.com or _________! </p>
 </main>
-
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
-</style>

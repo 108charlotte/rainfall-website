@@ -41,6 +41,10 @@
 </div>
 
 <style>
+    .past-events {
+        margin-top: 150px; 
+    }
+
     .clouds {
         display: grid;
         gap: 16px;
@@ -62,26 +66,31 @@
     .event-container.blossom {
       grid-column: 1 / -1;
       justify-self: center;
+      transform: translateX(30%); 
+    }
+
+    .on-top-of-cloud {
+      position: relative; 
     }
 
     .blossom .on-top-of-cloud {
-      transform: translate(0%, -150%); 
+        transform: translate(0%, -150%);
     }
 
     .cascade .on-top-of-cloud {
-        transform: translate(5%, -200%); 
+        transform: translate(5%, -190%); 
     }
 
     .other-event .on-top-of-cloud {
-        transform: translate(0%, -800%); 
+        transform: translate(0%, -700%); 
+    }
+
+    .cascade {
+        transform: translateY(30%); 
     }
 
     .label {
-        color: rgb(0, 93, 181); 
-        transform: translateY(-60%); 
-    }
-
-    .blossom {
-        transform: translateY(-40%); 
+        color: rgb(0, 93, 181);
+        transform: translateY(-50%);
     }
 </style>

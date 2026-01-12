@@ -13,6 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* copilot-generated and adapted by me for rain image to be overlay over page */
+.page-overlay {
+  position: fixed;
+  inset: 0; 
+  width: 100%; 
+  opacity: 50%; 
+}
+
 a {
   font-weight: 500;
   color: #646cff;
