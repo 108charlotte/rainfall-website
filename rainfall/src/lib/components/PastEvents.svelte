@@ -78,6 +78,11 @@
         border-radius: 10px;
         display: block;
         margin: 0 auto; /* ensure block-level centering fallback */
+        transition: transform 2 ease; 
+    }
+
+    .image-on-top:hover {
+        transform: scale(1.15) rotate(-5deg); 
     }
 
     .event-container.blossom {
