@@ -1,5 +1,5 @@
 <footer>
-    <p>This website was made with &lt;3 by teenagers at Hack Club and is open-sourced <a href="" target="_blank">here</a>! </p>
+    <p>This website was made with &lt;3 by teenagers at Hack Club and is open-sourced <a href="https://github.com/108charlotte/rainfall-website" target="_blank">here</a>! </p>
 </footer>
 
 <style>
