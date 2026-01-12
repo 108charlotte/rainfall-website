@@ -11,7 +11,7 @@
 
 <div class="past-events">
     <h1>Past Events</h1>
-    <p>Click the image to learn more! Both Cascade and Blossom were Atlanta events, and in the past we've partnered with organizations such as Girl Scouts and Soccer in the Streets! </p>
+    <p>Click each image to learn more! Both Cascade and Blossom were Atlanta events, and in the past we've partnered with organizations such as Girl Scouts and Soccer in the Streets! </p>
     <div class="clouds">
         <div class="event-container cascade">
             <img class="base" src={cloud1} alt="Cloud" />
@@ -45,6 +45,11 @@
         margin-top: 150px; 
     }
 
+    /* the below code was adapted and created with copilot. 
+    I certainly tweaked things, but since CSS isn't my strong 
+    suit this helped me get something down that's responsive 
+    to different screen sizes */
+
     .clouds {
         display: grid;
         gap: 16px;
@@ -53,44 +58,61 @@
         justify-items: center;
     }
 
+    .event-container {
+        width: clamp(240px, 35vw, 560px);
+        max-width: 100%;
+        display: block;
+        position: relative;
+        --overlay-top: 38%;
+    }
+
     .base {
-        width: 300px; 
+        width: 100%;
+        height: auto;
+        display: block;
     }
 
     .image-on-top {
-        width: 100px; 
-        border-radius: 10px; 
+        width: clamp(72px, 36%, 200px);
+        height: auto;
+        border-radius: 10px;
+        display: block;
+        margin: 0 auto; /* ensure block-level centering fallback */
     }
 
-    /* copilot code to center blossom cloud on 2nd grid row */
     .event-container.blossom {
-      grid-column: 1 / -1;
-      justify-self: center;
-      transform: translateX(30%); 
+        grid-column: 1 / -1;
+        justify-self: center;
     }
+                .on-top-of-cloud {
+                /* make the overlay full-width so percent-based image sizes are
+                    directly proportional to the cloud container, and center children */
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: var(--overlay-top, 38%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                	gap: 8px;
+                pointer-events: auto;
+                width: 100%;
+                	text-align: center;
+                	/* allow shifting the whole overlay horizontally via a per-event variable */
+                	transform: translateX(var(--overlay-shift-x, 0));
+            }
 
-    .on-top-of-cloud {
-      position: relative; 
-    }
-
-    .blossom .on-top-of-cloud {
-        transform: translate(0%, -150%);
-    }
-
-    .cascade .on-top-of-cloud {
-        transform: translate(5%, -190%); 
-    }
-
-    .other-event .on-top-of-cloud {
-        transform: translate(0%, -700%); 
-    }
-
-    .cascade {
-        transform: translateY(30%); 
-    }
+    .event-container.blossom { --overlay-top: 30%; }
+    .event-container.cascade { --overlay-top: 40%; --overlay-shift-x: 15px; }
+    .event-container.other-event { --overlay-top: 40%; }
 
     .label {
         color: rgb(0, 93, 181);
-        transform: translateY(-50%);
+        margin: 0;
+        margin-top: -5px;
+        text-align: center;
+        width: 100%;
     }
+
+    /* legacy per-image shift removed in favor of overlay-shift-x */
 </style>
