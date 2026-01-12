@@ -6,27 +6,32 @@
   import PastEvents from './lib/components/PastEvents.svelte'
   import Sponsors from './lib/components/Sponsors.svelte'
   import Organizers from './lib/components/Organizers.svelte'
+  import Contact from './lib/components/Contact.svelte'
+  import Footer from './lib/components/Footer.svelte'
 
   // assets
   import rainfallLogo from './assets/rainfall_logo.PNG'
   import rainOverlay from './assets/rain_overlay.PNG'
-  import cloud1 from './assets/cloud_1.PNG'
-  import cloud2 from './assets/cloud_2.PNG'
-  import cloud3 from './assets/cloud_3.PNG'
-  import raindrop1 from './assets/raindrop_1.PNG'
-  import raindrop2 from './assets/raindrop_2.PNG'
-  import raindrop3 from './assets/raindrop_3.PNG'
 
-  // copilot script to create a minimal parallax effect for the background minimal parallax: move overlay at reduced speed relative to scroll
-  let overlayOffset = 0
-  let raf = null
+  // copilot code to create parallax scroll effect
+  // how far (in px) to move the overlay up initially — set between -100 and -400
+  let baseOffset = -300; // change this to -100 .. -400 as you like
+
+  // parallax multiplier
+  const speed = 0.12;
+
+  let overlayOffset = baseOffset;
+  let raf = null;
 
   function handleScroll() {
-    if (raf) return
+    if (raf) return;
     raf = requestAnimationFrame(() => {
-      overlayOffset = window.scrollY * 0.35
-      raf = null
-    })
+      // dynamic part based on scroll
+      const dynamic = window.scrollY * speed;
+      // combine base and dynamic; optionally clamp to a range so it never goes too far
+      overlayOffset = Math.max(-400, Math.min(-100, baseOffset + dynamic));
+      raf = null;
+    });
   }
 
   onMount(() => {
@@ -37,11 +42,11 @@
 
 <main>
   <img src={rainfallLogo} alt="Rainfall Logo" width="300" />
-  <img src={rainOverlay} alt="" aria-hidden="true" class="page-overlay" style="transform: translateY({overlayOffset}px);" />
+  <img src={rainOverlay} alt="" aria-hidden="true" class="page-overlay" style="transform: translate3d(0, {overlayOffset}px, 0)" />
   <About/>
   <PastEvents/>
   <Sponsors/>
   <Organizers/>
-  <h1>Contact</h1>
-  <p>You can contact us at charlotte.m.woodrum@gmail.com or _________! </p>
+  <Contact/>
+  <Footer/>
 </main>

@@ -89,23 +89,24 @@
         grid-column: 1 / -1;
         justify-self: center;
     }
-                .on-top-of-cloud {
-                /* make the overlay full-width so percent-based image sizes are
-                    directly proportional to the cloud container, and center children */
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: var(--overlay-top, 38%);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                	gap: 8px;
-                pointer-events: auto;
-                width: 100%;
-                	text-align: center;
-                	/* allow shifting the whole overlay horizontally via a per-event variable */
-                	transform: translateX(var(--overlay-shift-x, 0));
-            }
+
+    .on-top-of-cloud {
+        /* make the overlay full-width so percent-based image sizes are
+            directly proportional to the cloud container, and center children */
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: var(--overlay-top, 38%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+            gap: 8px;
+        pointer-events: auto;
+        width: 100%;
+        text-align: center;
+        /* allow shifting the whole overlay horizontally via a per-event variable */
+        transform: translateX(var(--overlay-shift-x, 0));
+    }
 
     .event-container.blossom { --overlay-top: 30%; }
     .event-container.cascade { --overlay-top: 40%; --overlay-shift-x: 15px; }
@@ -118,6 +119,4 @@
         text-align: center;
         width: 100%;
     }
-
-    /* legacy per-image shift removed in favor of overlay-shift-x */
 </style>

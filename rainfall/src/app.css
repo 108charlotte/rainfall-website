@@ -32,8 +32,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -50,9 +48,14 @@ h1 {
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /* remove bottom padding so full-bleed footer sits flush with viewport edge */
+  padding: 2rem 2rem 0 2rem;
   text-align: center;
 }
+
+/* allow the main app content to grow so footer stays at the bottom when
+   content is short (optional; keeps normal document flow otherwise) */
+main { flex: 1 0 auto; }
 
 button {
   border-radius: 8px;
