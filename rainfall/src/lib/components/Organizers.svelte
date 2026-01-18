@@ -49,7 +49,7 @@
 
     .raindrop {
         /* allow larger raindrops while remaining responsive */
-        width: clamp(340px, 40vw, 800px);
+        width: clamp(240px, 40vw, 800px);
         max-width: 100%;
         display: block;
         position: relative;
@@ -68,7 +68,7 @@
         /* size the overlay image relative to the raindrop using a CSS variable
            so it automatically scales when you increase the raindrop size */
         width: var(--overlay-image-size, 30%);
-        min-width: 72px;
+        min-width: 120px;
         max-width: 360px;
         height: auto;
         border-radius: 10px;
@@ -102,23 +102,23 @@
 
      /* Per-raindrop variables. Use --overlay-shift-x (percent or px) so it
          matches the transform above. */
-    .raindrop.charlotte { --overlay-top: 32%; --overlay-shift-x: 6%; --overlay-image-size: 34%; }
+    .raindrop.charlotte { --overlay-top: 32%; --overlay-shift-x: -2%; --overlay-image-size: 34%; }
     .raindrop.shyla { --overlay-top: 70%; --overlay-shift-x: -5%; --overlay-image-size: 34%; }
 
     .charlotte .on-top-of-image img {
-        border-top-left-radius: 150px; 
-        border-top-right-radius: 20px; 
+        border-top-left-radius: 80px; 
+        border-top-right-radius: 50px; 
     }
 
     .name {
         margin-top: -5px; 
-        font-size: 12px; 
+        font-size: 20px; 
         color: rgb(0, 30, 57);
         font-weight: 700; 
     }
 
     a, .bio {
-        font-size: 10px; 
+        font-size: 14px; 
         margin: 0;
         text-align: center;
         width: 180px;
@@ -133,8 +133,7 @@
         color: rgb(255, 255, 255);
         text-decoration: underline; 
         background: rgb(8, 106, 142); 
-        width: 100px; 
+        width: 120px; 
         border-radius: 10px; 
-        margin-top: -3px; 
     }
 </style>

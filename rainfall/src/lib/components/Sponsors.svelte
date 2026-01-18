@@ -1,7 +1,6 @@
 <script>
     import raindrop1 from '../../assets/raindrop_1.PNG'
     import raindrop2 from '../../assets/raindrop_2.PNG'
-    import raindrop3 from '../../assets/raindrop_3.PNG'
 </script>
 
 <div id="sponsors">
