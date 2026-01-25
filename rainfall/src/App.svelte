@@ -81,10 +81,7 @@
     transform-origin: center top;
     will-change: transform;
     pointer-events: none;
-  /* horizontal translate is applied inline so we can nudge it via --overlay-shift-x */
-  /* (inline style includes translate3d(calc(-50% + var(--overlay-shift-x)), y, 0) ) */
-  /* You can change the overlay width if you want it to cover more than the viewport width */
-    width: 120vw; /* slightly wider so zoom doesn't clip at the edges */
+    width: 120vw;
     max-width: none;
     height: auto;
   }
