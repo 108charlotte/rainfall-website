@@ -1,8 +1,8 @@
 <script>
     import rainfallLogo from '../../assets/rainfall_logo.PNG'
     import rainOverlay from '../../assets/rain_overlay.PNG'
-    import cloud1 from '../../assets/cloud_1.PNG'
-    import cloud2 from '../../assets/cloud_2.PNG'
+    import cloud1 from '../../assets/cloud_1.png'
+    import cloud2 from '../../assets/cloud_2.png'
     import cloud3 from '../../assets/cloud_3.png'
     
     import cascade from '../../assets/cascade.jpeg'
