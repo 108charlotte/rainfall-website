@@ -16,13 +16,13 @@
     <h1>Past Events</h1>
     <p>Click each image to learn more! Both Cascade and Blossom were Atlanta events, and in the past we've partnered with organizations such as Girl Scouts and Soccer in the Streets! </p>
     <div class="clouds">
-        <ImageCard baseImage={cloud1} overlayTop={"35%"} overlayShiftX={"6%"} overlayImageSize={"40%"}>
+        <ImageCard baseImage={cloud1} overlayTop={"25%"} overlayShiftX={"6%"} overlayImageSize={"40%"}>
             <a target="_blank" href="https://github.com/hackclub/cascade?tab=readme-ov-file#-cascade">
                 <img class="image-on-top" src={cascade} alt="A web development workshop at cascade"/>
             </a>
             <p class="label">CASCADE</p>
         </ImageCard>
-        <ImageCard baseImage={cloud2} overlayTop={"25%"} overlayImageSize={"40%"}>
+        <ImageCard baseImage={cloud2} overlayTop={"32%"} overlayImageSize={"40%"} overlayShiftX={"8%"}>
             <a target="_blank" href="https://github.com/hackclub/evergreen?tab=readme-ov-file#-evergreen">
             <img class="image-on-top" src={evergreen} alt="A participant learning circuit board design with EasyEDA at Evergreen"/>
         </a>
@@ -62,6 +62,7 @@
     .blossom-container {
         grid-column: 1 / -1;
         justify-self: center;
+        margin-top: -20vh; 
     }
 
     .label {
